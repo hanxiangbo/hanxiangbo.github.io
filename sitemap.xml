@@ -2,6 +2,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>https://hanxiangbo.github.io/categories/</loc>
+      
+      <lastmod>2020-10-10T16:54:02+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://hanxiangbo.github.io/</loc>
       
       <lastmod>2020-10-10T16:54:02+08:00</lastmod>
@@ -52,6 +62,16 @@
     </url>
   
     <url>
+      <loc>https://hanxiangbo.github.io/categories/uncategorized/</loc>
+      
+      <lastmod>2020-10-10T16:54:02+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://hanxiangbo.github.io/2020/mysql/</loc>
       
       <lastmod>2020-06-12T09:47:58+08:00</lastmod>
@@ -72,7 +92,9 @@
     </url>
   
     <url>
-      <loc>https://hanxiangbo.github.io/categories/</loc>
+      <loc>https://hanxiangbo.github.io/tags/mysql/</loc>
+      
+      <lastmod>2020-06-12T09:47:58+08:00</lastmod>
       
       
       

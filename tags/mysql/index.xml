@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on HXB</title>
-    <link>https://hanxiangbo.github.io/posts/</link>
-    <description>Recent content in Posts on HXB</description>
+    <title>Mysql on HXB</title>
+    <link>https://hanxiangbo.github.io/tags/mysql/</link>
+    <description>Recent content in Mysql on HXB</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 10 Oct 2020 16:54:02 +0800</lastBuildDate><atom:link href="https://hanxiangbo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Mongo 文件迁移</title>
-      <link>https://hanxiangbo.github.io/2020/mongo-%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB/</link>
-      <pubDate>Sat, 10 Oct 2020 16:54:02 +0800</pubDate>
-      
-      <guid>https://hanxiangbo.github.io/2020/mongo-%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB/</guid>
-      <description>@RequestMapping(value = &amp;#34;/moveFile&amp;#34;) public ModelMap moveFile(String fileId, String startTime, String endTime) { Long startTimes = System.currentTimeMillis(); //目的源  MongoCredential credentialTo = MongoCredential.createCredential(&amp;#34;ceshi&amp;#34;, &amp;#34;ceshi&amp;#34;, &amp;#34;123456&amp;#34;.toCharArray()); MongoClient mongoClientTo = new MongoClient(new ServerAddress(&amp;#34;192.168.1.15&amp;#34;, 27017), Arrays.asList(credentialTo)); MongoDatabase mongoDatabaseTo = mongoClientTo.getDatabase(&amp;#34;ceshi&amp;#34;); //复制源  MongoCredential credential = MongoCredential.createCredential(&amp;#34;root&amp;#34;, &amp;#34;travel_file&amp;#34;, &amp;#34;123456&amp;#34;.toCharArray()); MongoClient mongoClient = new MongoClient(new ServerAddress(&amp;#34;127.0.0.1&amp;#34;, 27017), Arrays.asList(credential)); MongoDatabase mongoDatabaseFrom = mongoClient.getDatabase(&amp;#34;travel_file&amp;#34;); log.info(&amp;#34;Mongo Connect to database successfully&amp;#34;); int successfulFiles = 0; int successfulChunks = 0; int existNum = 0; //数据库集合  String[] collections = {&amp;#34;fs.</description>
-    </item>
-    
+    <lastBuildDate>Fri, 12 Jun 2020 09:47:58 +0800</lastBuildDate><atom:link href="https://hanxiangbo.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title> Mysql</title>
       <link>https://hanxiangbo.github.io/2020/mysql/</link>
