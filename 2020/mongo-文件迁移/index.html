@@ -19,6 +19,8 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
+  
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <title>
        
        
@@ -46,7 +48,7 @@
     "articleSection" : "posts",
     "name" : "Mongo 文件迁移",
     "headline" : "Mongo 文件迁移",
-    "description" : "@RequestMapping(value = \u0026quot;\/moveFile\u0026quot;) public ModelMap moveFile(String fileId, String startTime, String endTime) { Long startTimes = System.currentTimeMillis(); \/\/目的源 MongoCredential credentialTo = MongoCredential.createCredential(\u0026quot;ceshi\u0026quot;, \u0026quot;ceshi\u0026quot;, \u0026quot;123456\u0026quot;.toCharArray()); MongoClient mongoClientTo = new MongoClient(new ServerAddress(\u0026quot;192.168.1.15\u0026quot;, 27017), Arrays.asList(credentialTo)); MongoDatabase mongoDatabaseTo = mongoClientTo.getDatabase(\u0026quot;ceshi\u0026quot;); \/\/复制源 MongoCredential credential = MongoCredential.createCredential(\u0026quot;root\u0026quot;, \u0026quot;travel_file\u0026quot;, \u0026quot;123456\u0026quot;.toCharArray()); MongoClient mongoClient = new MongoClient(new ServerAddress(\u0026quot;127.0.0.1\u0026quot;, 27017), Arrays.asList(credential)); MongoDatabase mongoDatabaseFrom = mongoClient.getDatabase(\u0026quot;travel_file\u0026quot;); log.info(\u0026quot;Mongo Connect to database successfully\u0026quot;); int successfulFiles = 0; int successfulChunks = 0; int existNum = 0; \/\/数据库集合 String[] collections = {\u0026quot;fs.",
+    "description" : "@RequestMapping(value = \u0026#34;\/moveFile\u0026#34;) public ModelMap moveFile(String fileId, String startTime, String endTime) { Long startTimes = System.currentTimeMillis(); \/\/目的源  MongoCredential credentialTo = MongoCredential.createCredential(\u0026#34;ceshi\u0026#34;, \u0026#34;ceshi\u0026#34;, \u0026#34;123456\u0026#34;.toCharArray()); MongoClient mongoClientTo = new MongoClient(new ServerAddress(\u0026#34;192.168.1.15\u0026#34;, 27017), Arrays.asList(credentialTo)); MongoDatabase mongoDatabaseTo = mongoClientTo.getDatabase(\u0026#34;ceshi\u0026#34;); \/\/复制源  MongoCredential credential = MongoCredential.createCredential(\u0026#34;root\u0026#34;, \u0026#34;travel_file\u0026#34;, \u0026#34;123456\u0026#34;.toCharArray()); MongoClient mongoClient = new MongoClient(new ServerAddress(\u0026#34;127.0.0.1\u0026#34;, 27017), Arrays.asList(credential)); MongoDatabase mongoDatabaseFrom = mongoClient.getDatabase(\u0026#34;travel_file\u0026#34;); log.info(\u0026#34;Mongo Connect to database successfully\u0026#34;); int successfulFiles = 0; int successfulChunks = 0; int existNum = 0; \/\/数据库集合  String[] collections = {\u0026#34;fs.",
     "inLanguage" : "",
     "author" : "HanXiangBo",
     "creator" : "HanXiangBo",
@@ -54,11 +56,11 @@
     "accountablePerson" : "HanXiangBo",
     "copyrightHolder" : "HanXiangBo",
     "copyrightYear" : "2020",
-    "datePublished": "2020-10-10 16:54:02 \u002b0800 CST",
-    "dateModified" : "2020-10-10 16:54:02 \u002b0800 CST",
+    "datePublished": "2020-10-10 16:54:02 \u002b0800 \u002b0800",
+    "dateModified" : "2020-10-10 16:54:02 \u002b0800 \u002b0800",
     "url" : "https:\/\/hanxiangbo.github.io\/2020\/mongo-%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB\/",
     "wordCount" : "305",
-    "keywords" : [  "LeaveIt"]
+    "keywords" : [ "Mongo", "LeaveIt"]
 }
 </script>
 
@@ -118,12 +120,13 @@
     <header class="post-header">
         <h1 class="post-title" itemprop="name headline">Mongo 文件迁移</h1>
         <div class="post-meta">
-                Written by <a itemprop="name" href="https://hanxiangbo.github.io" rel="author">HanXiangBo</a> with ♥ 
+                Written by <a itemprop="name" href="https://hanxiangbo.github.io" rel="author">HanXiangBo</a> with ♥
                 <span class="post-time">
                 on <time datetime=2020-10-10 itemprop="datePublished">October 10, 2020</time>
                 </span>
                 in
                 
+            <span id="wc" style="font-size: 1rem;text-align: center;">400 Words|Read in about 2 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span>
         </div>
     </header>
     <div class="post-content">
@@ -133,125 +136,132 @@
 
         
         
-     
-          
-          
-          
 
           
           
           
 
-          <pre><code>@RequestMapping(value = &quot;/moveFile&quot;)
-public ModelMap moveFile(String fileId, String startTime, String endTime) {
+          
+          
+          
 
-    Long startTimes = System.currentTimeMillis();
-    //目的源
-    MongoCredential credentialTo = MongoCredential.createCredential(&quot;ceshi&quot;, &quot;ceshi&quot;, &quot;123456&quot;.toCharArray());
-    MongoClient mongoClientTo = new MongoClient(new ServerAddress(&quot;192.168.1.15&quot;, 27017), Arrays.asList(credentialTo));
-    MongoDatabase mongoDatabaseTo = mongoClientTo.getDatabase(&quot;ceshi&quot;);
-    //复制源
-    MongoCredential credential = MongoCredential.createCredential(&quot;root&quot;, &quot;travel_file&quot;, &quot;123456&quot;.toCharArray());
-    MongoClient mongoClient = new MongoClient(new ServerAddress(&quot;127.0.0.1&quot;, 27017), Arrays.asList(credential));
-    MongoDatabase mongoDatabaseFrom = mongoClient.getDatabase(&quot;travel_file&quot;);
+          <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">    <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">RequestMapping</span>(<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/moveFile&#34;</span>)
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ModelMap</span> <span style="color:#a6e22e">moveFile</span>(String <span style="color:#a6e22e">fileId</span>, String <span style="color:#a6e22e">startTime</span>, String <span style="color:#a6e22e">endTime</span>) {
 
-    log.info(&quot;Mongo Connect to database successfully&quot;);
+        <span style="color:#a6e22e">Long</span> <span style="color:#a6e22e">startTimes</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span>.<span style="color:#a6e22e">currentTimeMillis</span>();
+        <span style="color:#75715e">//目的源
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">MongoCredential</span> <span style="color:#a6e22e">credentialTo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MongoCredential</span>.<span style="color:#a6e22e">createCredential</span>(<span style="color:#e6db74">&#34;ceshi&#34;</span>, <span style="color:#e6db74">&#34;ceshi&#34;</span>, <span style="color:#e6db74">&#34;123456&#34;</span>.<span style="color:#a6e22e">toCharArray</span>());
+        <span style="color:#a6e22e">MongoClient</span> <span style="color:#a6e22e">mongoClientTo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MongoClient</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ServerAddress</span>(<span style="color:#e6db74">&#34;192.168.1.15&#34;</span>, <span style="color:#ae81ff">27017</span>), <span style="color:#a6e22e">Arrays</span>.<span style="color:#a6e22e">asList</span>(<span style="color:#a6e22e">credentialTo</span>));
+        <span style="color:#a6e22e">MongoDatabase</span> <span style="color:#a6e22e">mongoDatabaseTo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mongoClientTo</span>.<span style="color:#a6e22e">getDatabase</span>(<span style="color:#e6db74">&#34;ceshi&#34;</span>);
+        <span style="color:#75715e">//复制源
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">MongoCredential</span> <span style="color:#a6e22e">credential</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">MongoCredential</span>.<span style="color:#a6e22e">createCredential</span>(<span style="color:#e6db74">&#34;root&#34;</span>, <span style="color:#e6db74">&#34;travel_file&#34;</span>, <span style="color:#e6db74">&#34;123456&#34;</span>.<span style="color:#a6e22e">toCharArray</span>());
+        <span style="color:#a6e22e">MongoClient</span> <span style="color:#a6e22e">mongoClient</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MongoClient</span>(<span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ServerAddress</span>(<span style="color:#e6db74">&#34;127.0.0.1&#34;</span>, <span style="color:#ae81ff">27017</span>), <span style="color:#a6e22e">Arrays</span>.<span style="color:#a6e22e">asList</span>(<span style="color:#a6e22e">credential</span>));
+        <span style="color:#a6e22e">MongoDatabase</span> <span style="color:#a6e22e">mongoDatabaseFrom</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mongoClient</span>.<span style="color:#a6e22e">getDatabase</span>(<span style="color:#e6db74">&#34;travel_file&#34;</span>);
 
-    int successfulFiles = 0;
-    int successfulChunks = 0;
-    int existNum = 0;
-    //数据库集合
-    String[] collections = {&quot;fs.files&quot;, &quot;fs.chunks&quot;};
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;Mongo Connect to database successfully&#34;</span>);
 
-    if (StringUtils.isBlank(startTime)) {
-        startTime = &quot;2020-09-22 11:00:00&quot;;
-    }
-    if (StringUtils.isBlank(endTime)) {
-        endTime = &quot;2020-09-25 12:00:00&quot;;
-    }
-    Example uploadExample = new Example(UploadFile.class);
-    Example.Criteria criteria = uploadExample.createCriteria();
-    criteria.andEqualTo(&quot;isDel&quot;, BaseEnum.notDel.getCode())
-            .andEqualTo(&quot;isValid&quot;, 1)
-            .andBetween(&quot;createTime&quot;, startTime, endTime);
-    if(StringUtils.isNotBlank(fileId)){
-        criteria.andEqualTo(&quot;filedId&quot;,fileId);
-    }
-    uploadExample.setOrderByClause(&quot;create_time desc&quot;);
-    List&lt;UploadFile&gt; uploadFileList = uploadFileService.selectByExample(uploadExample);
-    log.info(&quot;目标文件一个获取了&quot; + uploadFileList.size() + &quot;个&quot;);
-    Iterator&lt;UploadFile&gt; iterator = uploadFileList.iterator();
-    while (iterator.hasNext()) {
-        UploadFile uploadFile = iterator.next();
-        List&lt;GridFSDBFile&gt; list = gridFSRepository.findOne(uploadFile.getFiledId());
-        if (CollectionUtils.isEmpty(list)) {
-            for (int i = 0; i &lt; collections.length; i++) {
-                int a = 0;
-                MongoCollection&lt;Document&gt; fromCollection = mongoDatabaseFrom.getCollection(collections[i]);
+        <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">successfulFiles</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">successfulChunks</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">existNum</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        <span style="color:#75715e">//数据库集合
+</span><span style="color:#75715e"></span>        String[] <span style="color:#a6e22e">collections</span> <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;fs.files&#34;</span>, <span style="color:#e6db74">&#34;fs.chunks&#34;</span>};
 
-                MongoCollection&lt;Document&gt; toCollection = mongoDatabaseTo.getCollection(collections[i]);
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">StringUtils</span>.<span style="color:#a6e22e">isBlank</span>(<span style="color:#a6e22e">startTime</span>)) {
+            <span style="color:#a6e22e">startTime</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2020-09-22 11:00:00&#34;</span>;
+        }
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">StringUtils</span>.<span style="color:#a6e22e">isBlank</span>(<span style="color:#a6e22e">endTime</span>)) {
+            <span style="color:#a6e22e">endTime</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2020-09-25 12:00:00&#34;</span>;
+        }
+        <span style="color:#a6e22e">Example</span> <span style="color:#a6e22e">uploadExample</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Example</span>(<span style="color:#a6e22e">UploadFile</span>.<span style="color:#66d9ef">class</span>);
+        <span style="color:#a6e22e">Example</span>.<span style="color:#a6e22e">Criteria</span> <span style="color:#a6e22e">criteria</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">uploadExample</span>.<span style="color:#a6e22e">createCriteria</span>();
+        <span style="color:#a6e22e">criteria</span>.<span style="color:#a6e22e">andEqualTo</span>(<span style="color:#e6db74">&#34;isDel&#34;</span>, <span style="color:#a6e22e">BaseEnum</span>.<span style="color:#a6e22e">notDel</span>.<span style="color:#a6e22e">getCode</span>())
+                .<span style="color:#a6e22e">andEqualTo</span>(<span style="color:#e6db74">&#34;isValid&#34;</span>, <span style="color:#ae81ff">1</span>)
+                .<span style="color:#a6e22e">andBetween</span>(<span style="color:#e6db74">&#34;createTime&#34;</span>, <span style="color:#a6e22e">startTime</span>, <span style="color:#a6e22e">endTime</span>);
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">StringUtils</span>.<span style="color:#a6e22e">isNotBlank</span>(<span style="color:#a6e22e">fileId</span>)){
+            <span style="color:#a6e22e">criteria</span>.<span style="color:#a6e22e">andEqualTo</span>(<span style="color:#e6db74">&#34;filedId&#34;</span>,<span style="color:#a6e22e">fileId</span>);
+        }
+        <span style="color:#a6e22e">uploadExample</span>.<span style="color:#a6e22e">setOrderByClause</span>(<span style="color:#e6db74">&#34;create_time desc&#34;</span>);
+        <span style="color:#a6e22e">List</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">UploadFile</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">uploadFileList</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">uploadFileService</span>.<span style="color:#a6e22e">selectByExample</span>(<span style="color:#a6e22e">uploadExample</span>);
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;目标文件一个获取了&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">uploadFileList</span>.<span style="color:#a6e22e">size</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;个&#34;</span>);
+        <span style="color:#a6e22e">Iterator</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">UploadFile</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">iterator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">uploadFileList</span>.<span style="color:#a6e22e">iterator</span>();
+        <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">iterator</span>.<span style="color:#a6e22e">hasNext</span>()) {
+            <span style="color:#a6e22e">UploadFile</span> <span style="color:#a6e22e">uploadFile</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">iterator</span>.<span style="color:#a6e22e">next</span>();
+            <span style="color:#a6e22e">List</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">GridFSDBFile</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">list</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gridFSRepository</span>.<span style="color:#a6e22e">findOne</span>(<span style="color:#a6e22e">uploadFile</span>.<span style="color:#a6e22e">getFiledId</span>());
+            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">CollectionUtils</span>.<span style="color:#a6e22e">isEmpty</span>(<span style="color:#a6e22e">list</span>)) {
+                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">collections</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+                    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+                    <span style="color:#a6e22e">MongoCollection</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Document</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">fromCollection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mongoDatabaseFrom</span>.<span style="color:#a6e22e">getCollection</span>(<span style="color:#a6e22e">collections</span>[<span style="color:#a6e22e">i</span>]);
 
-                String id = i == 0 ? &quot;_id&quot; : &quot;files_id&quot;;
-                BasicDBObject dbObject = new BasicDBObject();
-                dbObject.put(id, new ObjectId(uploadFile.getFiledId()));
-                FindIterable&lt;Document&gt; findIterable = fromCollection.find(dbObject);
-                MongoCursor&lt;Document&gt; mongoCursor = findIterable.iterator();
-                while (mongoCursor.hasNext()) {
-                    Document fromDocument = mongoCursor.next();
-                    try {
-                        toCollection.insertOne(fromDocument);
-                        fromCollection.updateOne(Filters.eq(&quot;_id&quot;, fromDocument.get(&quot;_id&quot;)), new Document(&quot;$set&quot;, new Document(&quot;transfered&quot;, 1)));
-                        log.info(&quot;集合&quot; + collections[i] + &quot;=====&quot; + fromDocument.get(&quot;_id&quot;) + &quot; transfer successful , added flag transfered ====&quot; + a++);
-                        if (i == 0) {
-                            successfulFiles++;
-                        } else {
-                            successfulChunks++;
+                    <span style="color:#a6e22e">MongoCollection</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Document</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">toCollection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mongoDatabaseTo</span>.<span style="color:#a6e22e">getCollection</span>(<span style="color:#a6e22e">collections</span>[<span style="color:#a6e22e">i</span>]);
+
+                    String <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;_id&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;files_id&#34;</span>;
+                    <span style="color:#a6e22e">BasicDBObject</span> <span style="color:#a6e22e">dbObject</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">BasicDBObject</span>();
+                    <span style="color:#a6e22e">dbObject</span>.<span style="color:#a6e22e">put</span>(<span style="color:#a6e22e">id</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ObjectId</span>(<span style="color:#a6e22e">uploadFile</span>.<span style="color:#a6e22e">getFiledId</span>()));
+                    <span style="color:#a6e22e">FindIterable</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Document</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">findIterable</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fromCollection</span>.<span style="color:#a6e22e">find</span>(<span style="color:#a6e22e">dbObject</span>);
+                    <span style="color:#a6e22e">MongoCursor</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Document</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">mongoCursor</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">findIterable</span>.<span style="color:#a6e22e">iterator</span>();
+                    <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">mongoCursor</span>.<span style="color:#a6e22e">hasNext</span>()) {
+                        <span style="color:#a6e22e">Document</span> <span style="color:#a6e22e">fromDocument</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mongoCursor</span>.<span style="color:#a6e22e">next</span>();
+                        <span style="color:#66d9ef">try</span> {
+                            <span style="color:#a6e22e">toCollection</span>.<span style="color:#a6e22e">insertOne</span>(<span style="color:#a6e22e">fromDocument</span>);
+                            <span style="color:#a6e22e">fromCollection</span>.<span style="color:#a6e22e">updateOne</span>(<span style="color:#a6e22e">Filters</span>.<span style="color:#a6e22e">eq</span>(<span style="color:#e6db74">&#34;_id&#34;</span>, <span style="color:#a6e22e">fromDocument</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;_id&#34;</span>)), <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Document</span>(<span style="color:#e6db74">&#34;$set&#34;</span>, <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Document</span>(<span style="color:#e6db74">&#34;transfered&#34;</span>, <span style="color:#ae81ff">1</span>)));
+                            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;集合&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">collections</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;=====&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fromDocument</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;_id&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; transfer successful , added flag transfered ====&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">++</span>);
+                            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+                                <span style="color:#a6e22e">successfulFiles</span><span style="color:#f92672">++</span>;
+                            } <span style="color:#66d9ef">else</span> {
+                                <span style="color:#a6e22e">successfulChunks</span><span style="color:#f92672">++</span>;
+                            }
+                        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">Exception</span> <span style="color:#a6e22e">e</span>) {
+                            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;集合&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">collections</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;=====&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">fromDocument</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;_id&#34;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; transfer filed , &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">getLocalizedMessage</span>());
                         }
-                    } catch (Exception e) {
-                        log.error(&quot;集合&quot; + collections[i] + &quot;=====&quot; + fromDocument.get(&quot;_id&quot;) + &quot; transfer filed , &quot; + e.getLocalizedMessage());
                     }
                 }
+            } <span style="color:#66d9ef">else</span> {
+                <span style="color:#a6e22e">existNum</span><span style="color:#f92672">++</span>;
+                <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;===========&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">uploadFile</span>.<span style="color:#a6e22e">getFiledId</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;文件已经存在====&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">existNum</span>);
             }
-        } else {
-            existNum++;
-            log.info(&quot;===========&quot; + uploadFile.getFiledId() + &quot;文件已经存在====&quot;+existNum);
         }
+        <span style="color:#a6e22e">Long</span> <span style="color:#a6e22e">endTimes</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">System</span>.<span style="color:#a6e22e">currentTimeMillis</span>();
+        <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#34;集合files共处理了&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">successfulFiles</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;个文档,集合files共处理了&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">successfulChunks</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;个文档,耗时:&#34;</span> <span style="color:#f92672">+</span> (<span style="color:#a6e22e">endTimes</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">startTimes</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;s&#34;</span>);
+
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ReturnUtil</span>.<span style="color:#a6e22e">Success</span>(<span style="color:#e6db74">&#34;目标文件一个获取了&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">uploadFileList</span>.<span style="color:#a6e22e">size</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;个,已经存在了&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">existNum</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;个,集合files共处理了&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">successfulFiles</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;个文档,集合files共处理了&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">successfulChunks</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;个文档&#34;</span>);
     }
-    Long endTimes = System.currentTimeMillis();
-    log.info(&quot;集合files共处理了&quot; + successfulFiles + &quot;个文档,集合files共处理了&quot; + successfulChunks + &quot;个文档,耗时:&quot; + (endTimes - startTimes) / 1000 + &quot;s&quot;);
-
-    return ReturnUtil.Success(&quot;目标文件一个获取了&quot; + uploadFileList.size() + &quot;个,已经存在了&quot;+existNum+&quot;个,集合files共处理了&quot; + successfulFiles + &quot;个文档,集合files共处理了&quot; + successfulChunks + &quot;个文档&quot;);
-}
-</code></pre>
-
+</code></pre></div>
     </div>
 
     <div class="post-copyright">
-             
+            
             <p class="copyright-item">
                 <span>Author:</span>
                 <span>HanXiangBo </span>
                 </p>
             
-           
-             
+
+            
             <p class="copyright-item">
                     <span>Link:</span>
                     <a href=https://hanxiangbo.github.io/2020/mongo-%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB/>https://hanxiangbo.github.io/2020/mongo-%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB/</span>
             </p>
             
-             
+            
             <p class="copyright-item lincese">
                 本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
             </p>
             
     </div>
 
-  
+
     <div class="post-tags">
         
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://hanxiangbo.github.io/tags/mongo/">
+                    #Mongo</a></span>
+            
+            </section>
+        
         <section>
-                <a href="javascript:window.history.back();">back</a></span> · 
+                <a href="javascript:window.history.back();">back</a></span> ·
                 <span><a href="https://hanxiangbo.github.io">home</a></span>
         </section>
     </div>
@@ -259,7 +269,7 @@ public ModelMap moveFile(String fileId, String startTime, String endTime) {
     <div class="post-nav">
         
         <a href="https://hanxiangbo.github.io/2020/mysql/" class="prev" rel="prev" title=" Mysql"><i class="iconfont icon-left"></i>&nbsp; Mysql</a>
-         
+        
         
     </div>
 
@@ -278,14 +288,15 @@ public ModelMap moveFile(String fileId, String startTime, String endTime) {
         <span itemprop="copyrightYear">2020 - 2020</span>
         
         <span class="with-love">
-    	 <i class="iconfont icon-love"></i> 
+    	 <i class="iconfont icon-love"></i>
          </span>
          
-            <span class="author" itemprop="copyrightHolder"><a href="https://hanxiangbo.github.io">HanXiangBo</a> | </span> 
+            <span class="author" itemprop="copyrightHolder"><a href="https://hanxiangbo.github.io">HanXiangBo</a> | </span>
          
 
          
-		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
+        <span id="busuanzi_container_site_pv">本站访问量：<span id="busuanzi_value_site_pv"></span>次</span>
     </div>
 </footer>
 
@@ -305,6 +316,7 @@ public ModelMap moveFile(String fileId, String startTime, String endTime) {
     <script src="/js/vendor_no_gallery.min.js" async=""></script>
     
   
+
 
 
 
