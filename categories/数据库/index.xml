@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Uncategorized on HXB</title>
-    <link>https://hanxiangbo.github.io/categories/uncategorized/</link>
-    <description>Recent content in Uncategorized on HXB</description>
+    <title>数据库 on HXB</title>
+    <link>https://hanxiangbo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <description>Recent content in 数据库 on HXB</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 10 Oct 2020 16:54:02 +0800</lastBuildDate><atom:link href="https://hanxiangbo.github.io/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Oct 2020 16:54:02 +0800</lastBuildDate><atom:link href="https://hanxiangbo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mongo 文件迁移</title>
       <link>https://hanxiangbo.github.io/2020/mongo-%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB/</link>
@@ -21,10 +21,8 @@
       <pubDate>Fri, 12 Jun 2020 09:47:58 +0800</pubDate>
       
       <guid>https://hanxiangbo.github.io/2020/mysql/</guid>
-      <description>1 定位慢 SQL
-1.1 通过慢查询日志
-如果需要定位到慢查询，一般的方法是通过慢查询日志来查询的，MySQL 的慢查询日志用来记录在 MySQL 中响应时间超过参数 long_query_time（单位秒，默认值 10）设置的值并且扫描记录数不小于 min_examined_row_limit（默认值0）的语句，能够帮我们找到执行完的慢查询，方便我们对这些 SQL 进行优化。 默认情况下，慢查询日志中不会记录管理语句，可通过设置 log_slow_admin_statements = on 让管理语句中的慢查询也会记录到慢查询日志中。
-默认情况下，也不会记录查询时间不超过 long_query_time 但是不使用索引的语句，可通过配置log_queries_not_using_indexes = on 让不使用索引的 SQL 都被记录到慢查询日志中（即使查询时间没超过 long_query_time 配置的值）。</description>
+      <description>1 定位慢 SQL 1.1 通过慢查询日志
+如果需要定位到慢查询，一般的方法是通过慢查询日志来查询的，MySQL 的慢查询日志用来记录在 MySQL 中响应时间超过参数 long_query_time（单位秒，默认值 10）设置的值并且扫描记录数不小于 min_examined_row_limit（默认值0）的语句，能够帮我们找到执行完的慢查询，方便我们对这些 SQL 进行优化。 默认情况下，慢查询日志中不会记录管理语句，可通过设置 log_slow_admin_statements = on 让管理语句中的慢查询也会记录到慢查询日志中。 默认情况下，也不会记录查询时间不超过 long_query_time 但是不使用索引的语句，可通过配置log_queries_not_using_indexes = on 让不使用索引的 SQL 都被记录到慢查询日志中（即使查询时间没超过 long_query_time 配置的值）。</description>
     </item>
     
     <item>
@@ -35,13 +33,12 @@
       <guid>https://hanxiangbo.github.io/2020/mysql%E4%BA%8B%E5%8A%A1/</guid>
       <description>事务基本要素   数据库的事务是指一组sql语句组成的数据库逻辑处理单元，在这组的sql操作中，要么全部执行成功，要么全部执行失败 事务具有4个特性：原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）和持续性（Durability）  A (Atomicity) 原子性：整个事务中的所有操作，要么全部完成，要么全部不完成，不可能停滞在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样 C (Consistency) 一致性：在事务开始之前和事务结束以后，数据库的完整性约束没有被破坏 I (Isolation)隔离性：一个事务的执行不能其它事务干扰。即一个事务内部的操作及使用的数据对其它并发事务是隔离的，并发执行的各个事务之间不能互相干扰 D (Durability) 持久性：在事务完成以后，该事务所对数据库所作的更改便持久的保存在数据库之中，并不会被回滚   原子性：使用 undo log,从而达到回滚 持久性：使用 redo log,从而达到故障后恢复 隔离性：使用锁以及MVCC,运用的优化思想有读写分离,读读并行,读写并行 一致性：通过回滚以及恢复和在并发环境下的隔离做到一致性。   事务隔离级别
 MySQL 的 InnoDB 引擎才支持事务，其中可重复读是默认的隔离级别。 2.1 读未提交（READ UNCOMMITTED）
- 读未提交会读到另一个事务的未提交的数据，产生脏读问题
-2.2 读提交 （READ COMMITTED） 读提交解决了脏读的，出现了不可重复读，即在一个事务任意时刻读到的数据可能不一样，可能会受到其它事务对数据修改提交后的影响，一般是对于update的操作。
-2.3 可重复读 （REPEATABLE READ） 可重复是对比不可重复而言的，上面说不可重复读是指同一事物不同时刻读到的数据值可能不一致。而可重复读是指，事务不会读到其他事务对已有数据的修改，及时其他事务已提交，也就是说，事务开始时读到的已有数据是什么，在事务提交前的任意时刻，这些数据的值都是一样的。但是，对于其他事务新插入的数据是可以读到的，这也就引发了幻读问题。
-2.4 串行化 （SERIALIZABLE） 串行化是4种事务隔离级别中隔离效果最好的，解决了脏读、可重复读、幻读的问题，但是效果最差，它将事务的执行变为顺序执行，与其他三个隔离级别相比，它就相当于单线程，后一个事务的执行必须等待前一个事务结束  隔离界别 脏读 不可重复读 幻读
-未提交读(Read uncommited) 可能 可能 可能
-已提交读(Read commited) 不可能 可能 可能
-可重复读(Repeatable read) 不可能 不可能 可能</description>
+ 读未提交会读到另一个事务的未提交的数据，产生脏读问题    2.2 读提交 （READ COMMITTED）
+ 读提交解决了脏读的，出现了不可重复读，即在一个事务任意时刻读到的数据可能不一样，可能会受到其它事务对数据修改提交后的影响，一般是对于update的操作。  2.3 可重复读 （REPEATABLE READ）
+  可重复是对比不可重复而言的，上面说不可重复读是指同一事物不同时刻读到的数据值可能不一致。而可重复读是指，事务不会读到其他事务对已有数据的修改，及时其他事务已提交，也就是说，事务开始时读到的已有数据是什么，在事务提交前的任意时刻，这些数据的值都是一样的。但是，对于其他事务新插入的数据是可以读到的，这也就引发了幻读问题。
+2.4 串行化 （SERIALIZABLE）
+  串行化是4种事务隔离级别中隔离效果最好的，解决了脏读、可重复读、幻读的问题，但是效果最差，它将事务的执行变为顺序执行，与其他三个隔离级别相比，它就相当于单线程，后一个事务的执行必须等待前一个事务结束
+     隔离级别 脏读 不可重复读 幻读     未提交读(Read uncommited) 可能 可能 可能   已提交读(Read commited) 不可能 可能 可能   可重复读(Repeatable read) 不可能 不可能 可能   串行化(Serializable) 不可能 不可能 不可能    脏读</description>
     </item>
     
   </channel>

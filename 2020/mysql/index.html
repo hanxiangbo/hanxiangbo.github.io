@@ -48,7 +48,7 @@
     "articleSection" : "posts",
     "name" : " Mysql",
     "headline" : " Mysql",
-    "description" : "1 定位慢 SQL\n1.1 通过慢查询日志\n如果需要定位到慢查询，一般的方法是通过慢查询日志来查询的，MySQL 的慢查询日志用来记录在 MySQL 中响应时间超过参数 long_query_time（单位秒，默认值 10）设置的值并且扫描记录数不小于 min_examined_row_limit（默认值0）的语句，能够帮我们找到执行完的慢查询，方便我们对这些 SQL 进行优化。 默认情况下，慢查询日志中不会记录管理语句，可通过设置 log_slow_admin_statements = on 让管理语句中的慢查询也会记录到慢查询日志中。\n默认情况下，也不会记录查询时间不超过 long_query_time 但是不使用索引的语句，可通过配置log_queries_not_using_indexes = on 让不使用索引的 SQL 都被记录到慢查询日志中（即使查询时间没超过 long_query_time 配置的值）。",
+    "description" : "1 定位慢 SQL 1.1 通过慢查询日志\n如果需要定位到慢查询，一般的方法是通过慢查询日志来查询的，MySQL 的慢查询日志用来记录在 MySQL 中响应时间超过参数 long_query_time（单位秒，默认值 10）设置的值并且扫描记录数不小于 min_examined_row_limit（默认值0）的语句，能够帮我们找到执行完的慢查询，方便我们对这些 SQL 进行优化。 默认情况下，慢查询日志中不会记录管理语句，可通过设置 log_slow_admin_statements = on 让管理语句中的慢查询也会记录到慢查询日志中。 默认情况下，也不会记录查询时间不超过 long_query_time 但是不使用索引的语句，可通过配置log_queries_not_using_indexes = on 让不使用索引的 SQL 都被记录到慢查询日志中（即使查询时间没超过 long_query_time 配置的值）。",
     "inLanguage" : "",
     "author" : "HanXiangBo",
     "creator" : "HanXiangBo",
@@ -127,7 +127,7 @@
             in
             <i class="iconfont icon-folder"></i>
             <span class="post-category">
-                        <a href="https://hanxiangbo.github.io/categories/uncategorized/"> Uncategorized </a>
+                        <a href="https://hanxiangbo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"> 数据库 </a>
                         
                 </span>
             <span id="wc" style="font-size: 1rem;text-align: center;">100 Words|Read in about 1 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span>
@@ -149,11 +149,11 @@
           
           
 
-          <p>1 定位慢 SQL<br>
-1.1 通过慢查询日志<br>
+          <h6 id="1-定位慢-sql">1 定位慢 SQL</h6>
+<p>1.1 通过慢查询日志<br>
 如果需要定位到慢查询，一般的方法是通过慢查询日志来查询的，MySQL 的慢查询日志用来记录在 MySQL 中响应时间超过参数 long_query_time（单位秒，默认值 10）设置的值并且扫描记录数不小于 min_examined_row_limit（默认值0）的语句，能够帮我们找到执行完的慢查询，方便我们对这些 SQL 进行优化。
-默认情况下，慢查询日志中不会记录管理语句，可通过设置 log_slow_admin_statements = on 让管理语句中的慢查询也会记录到慢查询日志中。</p>
-<p>默认情况下，也不会记录查询时间不超过 long_query_time 但是不使用索引的语句，可通过配置log_queries_not_using_indexes = on 让不使用索引的 SQL 都被记录到慢查询日志中（即使查询时间没超过 long_query_time 配置的值）。</p>
+默认情况下，慢查询日志中不会记录管理语句，可通过设置 log_slow_admin_statements = on 让管理语句中的慢查询也会记录到慢查询日志中。
+默认情况下，也不会记录查询时间不超过 long_query_time 但是不使用索引的语句，可通过配置log_queries_not_using_indexes = on 让不使用索引的 SQL 都被记录到慢查询日志中（即使查询时间没超过 long_query_time 配置的值）。</p>
 
     </div>
 
