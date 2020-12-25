@@ -12,7 +12,7 @@
       <pubDate>Fri, 25 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hanxiangbo.github.io/2020/centos7%E5%AE%89%E8%A3%85fail2ban%E9%98%B2%E5%BE%A1-ssh-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E6%94%BB%E5%87%BB/</guid>
-      <description>环境：centos-release-7-3.1611.el7.centos.x86_64 一. 安装 1.安装epel源 yum -y install epel-release 2.检查是否添加到源列表 yum repolist 3.安装fail2ban yum -y install fail2ban 二.配置Fail2ban 1.安装成功之后，fail2ban的配置文件位于/etc/fail2ban，其中的jail.conf为主要配置文件，有关的匹配规则位于filter.d目录下。fail2ban的目录结构说明如下： /etc/ fail2ban # # fail2ban 服务配置目录 / etc / fail2ban / action.d # # iptables 、mail 等动作文件目录 / etc / fail2ban / filter.d # # 条件匹配文件目录，过滤日志关键内容 / etc / fail2ban / jail.d # # 规则文件目录，按具体防护项目分成文件 / etc / fail2ban / jail.local # # 默认规则文件(自己新建的) / etc / fail2ban / jail.conf # # fail2ban 防护配置文件 / etc / fail2ban / fail2ban.</description>
+      <description>环境：centos-release-7-3.1611.el7.centos.x86_64 一. 安装 1.安装epel源 yum -y install epel-release 2.检查是否添加到源列表 yum repolist 3.安装fail2ban yum -y install fail2ban 二.配置Fail2ban 1.安装成功之后，fail2ban的配置文件位于/etc/fail2ban，其中的jail.conf为主要配置文件，有关的匹配规则位于filter.d目录下。fail2ban的目录结构说明如下： /etc/fail2ban ## fail2ban 服务配置目录 /etc/fail2ban/action.d ## iptables 、mail 等动作文件目录 /etc/fail2ban/filter.d ## 条件匹配文件目录，过滤日志关键内容 /etc/fail2ban/jail.d ## 规则文件目录，按具体防护项目分成文件 /etc/fail2ban/jail.local ## 默认规则文件(自己新建的) /etc/fail2ban/jail.conf ## fail2ban 防护配置文件 /etc/fail2ban/fail2ban.conf ## fail2ban 配置文件，定义日志级别、日志、sock 文件位置等 2.新建/etc/fail2ban/jail.local来设置默认配置 [DEFAULT] # time is in seconds. 3600 = 1 hour, 86400 = 24 hours (1 day) # 以空格分隔的列表，可以是 IP 地址、CIDR 前缀或者 DNS 主机名 # 用于指定哪些地址可以忽略 fail2ban 防御 ignoreip = 127.</description>
     </item>
     
     <item>
