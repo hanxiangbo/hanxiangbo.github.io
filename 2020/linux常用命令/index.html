@@ -24,10 +24,10 @@
   <title>
        
        
-           HashMap | HXB
+           Linux常用命令 | HXB
        
   </title>
-  <meta name="title" content="HashMap | HXB">
+  <meta name="title" content="Linux常用命令 | HXB">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -46,9 +46,9 @@
          "@id": "https:\/\/hanxiangbo.github.io"
     },
     "articleSection" : "posts",
-    "name" : "HashMap",
-    "headline" : "HashMap",
-    "description" : "1.Linux查看当前操作系统版本信息 cat \/proc\/version 2.检查源列表 yum repolist ",
+    "name" : "Linux常用命令",
+    "headline" : "Linux常用命令",
+    "description" : "1.Linux查看当前操作系统版本信息 cat \/proc\/version 2.检查源列表 yum repolist 运行的端口 netstat -nupl (UDP类型的端口) netstat -ntpl (TCP类型的端口) 你可以使用 lsof 命令来查看某一端口是否开放。查看端口可以这样来使用，我就以80端口为例：\nlsof -i:80 注意：\n服务有没有启动，如果有显示说明已经开放了，如果没有显示说明没有开放。\n查看firewall服务状态 systemctl status firewalld 查看firewall的状态 firewall-cmd --state 开启 service firewalld start 重启 service firewalld restart 关闭 service firewalld stop 查询端口是否开放 firewall-cmd --query-port=1017\/tcp 开放80端口 firewall-cmd --permanent --add-port=42284\/tcp 移除端口 firewall-cmd --permanent --remove-port=8888\/tcp 重启防火墙(修改配置后要重启防火墙) firewall-cmd --reload 参数解释 1、firwall-cmd：是Linux提供的操作firewall的一个工具；\n2、\u0026ndash;permanent：表示设置为持久；\n3、\u0026ndash;add-port：标识添加的端口；",
     "inLanguage" : "",
     "author" : "HanXiangBo",
     "creator" : "HanXiangBo",
@@ -59,8 +59,8 @@
     "datePublished": "2020-10-22 00:00:00 \u002b0000 UTC",
     "dateModified" : "2020-10-22 00:00:00 \u002b0000 UTC",
     "url" : "https:\/\/hanxiangbo.github.io\/2020\/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4\/",
-    "wordCount" : "6",
-    "keywords" : [ "HashMap", "HXB"]
+    "wordCount" : "57",
+    "keywords" : [ "Linux", "HXB"]
 }
 </script>
 
@@ -118,7 +118,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">HashMap</h1>
+        <h1 class="post-title" itemprop="name headline">Linux常用命令</h1>
         <div class="post-meta">
             with ♥
             <span class="post-time">
@@ -127,7 +127,7 @@
             in
             <i class="iconfont icon-folder"></i>
             <span class="post-category">
-                        <a href="https://hanxiangbo.github.io/categories/java/"> Java </a>
+                        <a href="https://hanxiangbo.github.io/categories/linux/"> Linux </a>
                         
                 </span>
             <span id="wc" style="font-size: 1rem;text-align: center;">100 Words|Read in about 1 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span>
@@ -150,10 +150,40 @@
           
 
           <h5 id="1linux查看当前操作系统版本信息">1.Linux查看当前操作系统版本信息</h5>
-<pre><code>cat /proc/version
-</code></pre><h5 id="2检查源列表">2.检查源列表</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">yum</span> <span style="color:#a6e22e">repolist</span>
-</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">cat</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">proc</span><span style="color:#f92672">/</span><span style="color:#a6e22e">version</span>
+</code></pre></div><h5 id="2检查源列表">2.检查源列表</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">yum</span> <span style="color:#a6e22e">repolist</span>
+</code></pre></div><h6 id="运行的端口">运行的端口</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">netstat</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">nupl</span> (<span style="color:#a6e22e">UDP类型的端口</span>) 
+
+<span style="color:#a6e22e">netstat</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">ntpl</span> (<span style="color:#a6e22e">TCP类型的端口</span>) 
+</code></pre></div><p>你可以使用 lsof 命令来查看某一端口是否开放。查看端口可以这样来使用，我就以80端口为例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">lsof</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">i</span><span style="color:#f92672">:</span><span style="color:#ae81ff">80</span> 
+</code></pre></div><p>注意：</p>
+<p>服务有没有启动，如果有显示说明已经开放了，如果没有显示说明没有开放。</p>
+<h6 id="查看firewall服务状态">查看firewall服务状态</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">systemctl</span> <span style="color:#a6e22e">status</span> <span style="color:#a6e22e">firewalld</span>
+</code></pre></div><h6 id="查看firewall的状态">查看firewall的状态</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">firewall</span><span style="color:#f92672">-</span><span style="color:#a6e22e">cmd</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">state</span>
+</code></pre></div><h6 id="开启">开启</h6>
+<pre><code>service firewalld start
+</code></pre><h6 id="重启">重启</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">service</span> <span style="color:#a6e22e">firewalld</span> <span style="color:#a6e22e">restart</span>
+</code></pre></div><h6 id="关闭">关闭</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">service</span> <span style="color:#a6e22e">firewalld</span> <span style="color:#a6e22e">stop</span>
+</code></pre></div><h6 id="查询端口是否开放">查询端口是否开放</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">firewall</span><span style="color:#f92672">-</span><span style="color:#a6e22e">cmd</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">query</span><span style="color:#f92672">-</span><span style="color:#a6e22e">port</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1017</span><span style="color:#f92672">/</span><span style="color:#a6e22e">tcp</span>
+</code></pre></div><h6 id="开放80端口">开放80端口</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">firewall</span><span style="color:#f92672">-</span><span style="color:#a6e22e">cmd</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">permanent</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">add</span><span style="color:#f92672">-</span><span style="color:#a6e22e">port</span><span style="color:#f92672">=</span><span style="color:#ae81ff">42284</span><span style="color:#f92672">/</span><span style="color:#a6e22e">tcp</span>
+</code></pre></div><h6 id="移除端口">移除端口</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">firewall</span><span style="color:#f92672">-</span><span style="color:#a6e22e">cmd</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">permanent</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">-</span><span style="color:#a6e22e">port</span><span style="color:#f92672">=</span><span style="color:#ae81ff">8888</span><span style="color:#f92672">/</span><span style="color:#a6e22e">tcp</span>
+</code></pre></div><h6 id="重启防火墙修改配置后要重启防火墙">重启防火墙(修改配置后要重启防火墙)</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">firewall</span><span style="color:#f92672">-</span><span style="color:#a6e22e">cmd</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">reload</span>
+</code></pre></div><h6 id="参数解释">参数解释</h6>
+<p>1、firwall-cmd：是Linux提供的操作firewall的一个工具；</p>
+<p>2、&ndash;permanent：表示设置为持久；</p>
+<p>3、&ndash;add-port：标识添加的端口；</p>
+
     </div>
 
     <div class="post-copyright">
@@ -183,8 +213,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s):
             
-            <span class="tag"><a href="https://hanxiangbo.github.io/tags/hashmap/">
-                    #HashMap</a></span>
+            <span class="tag"><a href="https://hanxiangbo.github.io/tags/linux/">
+                    #Linux</a></span>
             
             </section>
         

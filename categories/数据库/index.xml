@@ -5,7 +5,24 @@
     <link>https://hanxiangbo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
     <description>Recent content in 数据库 on HXB</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 10 Oct 2020 16:54:02 +0800</lastBuildDate><atom:link href="https://hanxiangbo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 29 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hanxiangbo.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>centos7 Mysql安装</title>
+      <link>https://hanxiangbo.github.io/2020/mysql%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanxiangbo.github.io/2020/mysql%E5%AE%89%E8%A3%85/</guid>
+      <description>系统环境：centos-release-7-3.1611.el7.centos.x86_64 1. 准备工作 1.1清理原有的mysql数据库 rpm -pa | grep mysql 显示结果如下：
+mysql80-community-release-el7-1.noarch mysql-community-server-8.0.11-1.el7.x86_64 mysql-community-common-8.0.11-1.el7.x86_64 mysql-community-libs-8.0.11-1.el7.x86_64 mysql-community-client-8.0.11-1.el7.x86_64 使用以下命令依次删除上面的程序 yum remove mysql-xxx-xxx- 删除mysql的配置文件，卸载不会自动删除配置文件，首先使用如下命令查找出所用的配置文件；
+find / -name mysql 显示结果如下:
+/etc/logrotate.d/mysql /etc/selinux/targeted/active/modules/100/mysql /etc/selinux/targeted/tmp/modules/100/mysql /var/lib/mysql /var/lib/mysql/mysql /usr/bin/mysql /usr/lib64/mysql /usr/local/mysql 删除：
+rm -rf /var/lib/mysql 1.2 删除MariaDB的文件 rpm -pa | grep mariadb 可能的显示结果如下：
+mariadb-libs-5.5.56-2.el7.x86_64 rpm -e mariadb-libs-5.5.56-2.el7.x86_64 #删除上面的程序 2. 安装MYSQL 下载mysql
+cd /usr/local mkdir mysql cd mysql wget https://repo.mysql.com//mysql80-community-release-el7-3.noarch.rpm 下载完成后采用yum 安装仓库
+yum install mysql80-community-release-el7-3.noarch.rpm 禁用mysql5.7的仓库，启用mysql8.0 的仓库
+yum install yum-utils -y yum-config-manager --disable mysql57-community yum-config-manager --enable mysql80-community 或者可以编辑 mysql repo文件</description>
+    </item>
+    
     <item>
       <title>Mongo 文件迁移</title>
       <link>https://hanxiangbo.github.io/2020/mongo-%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB/</link>

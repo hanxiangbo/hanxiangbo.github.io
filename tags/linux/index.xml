@@ -15,5 +15,19 @@
       <description>环境：centos-release-7-3.1611.el7.centos.x86_64 一. 安装 1.安装epel源 yum -y install epel-release 2.检查是否添加到源列表 yum repolist 3.安装fail2ban yum -y install fail2ban 二.配置Fail2ban 1.安装成功之后，fail2ban的配置文件位于/etc/fail2ban，其中的jail.conf为主要配置文件，有关的匹配规则位于filter.d目录下。fail2ban的目录结构说明如下： /etc/fail2ban ## fail2ban 服务配置目录 /etc/fail2ban/action.d ## iptables 、mail 等动作文件目录 /etc/fail2ban/filter.d ## 条件匹配文件目录，过滤日志关键内容 /etc/fail2ban/jail.d ## 规则文件目录，按具体防护项目分成文件 /etc/fail2ban/jail.local ## 默认规则文件(自己新建的) /etc/fail2ban/jail.conf ## fail2ban 防护配置文件 /etc/fail2ban/fail2ban.conf ## fail2ban 配置文件，定义日志级别、日志、sock 文件位置等 2.新建/etc/fail2ban/jail.local来设置默认配置 [DEFAULT] # time is in seconds. 3600 = 1 hour, 86400 = 24 hours (1 day) # 以空格分隔的列表，可以是 IP 地址、CIDR 前缀或者 DNS 主机名 # 用于指定哪些地址可以忽略 fail2ban 防御 ignoreip = 127.</description>
     </item>
     
+    <item>
+      <title>Linux常用命令</title>
+      <link>https://hanxiangbo.github.io/2020/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 22 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanxiangbo.github.io/2020/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>1.Linux查看当前操作系统版本信息 cat /proc/version 2.检查源列表 yum repolist 运行的端口 netstat -nupl (UDP类型的端口) netstat -ntpl (TCP类型的端口) 你可以使用 lsof 命令来查看某一端口是否开放。查看端口可以这样来使用，我就以80端口为例：
+lsof -i:80 注意：
+服务有没有启动，如果有显示说明已经开放了，如果没有显示说明没有开放。
+查看firewall服务状态 systemctl status firewalld 查看firewall的状态 firewall-cmd --state 开启 service firewalld start 重启 service firewalld restart 关闭 service firewalld stop 查询端口是否开放 firewall-cmd --query-port=1017/tcp 开放80端口 firewall-cmd --permanent --add-port=42284/tcp 移除端口 firewall-cmd --permanent --remove-port=8888/tcp 重启防火墙(修改配置后要重启防火墙) firewall-cmd --reload 参数解释 1、firwall-cmd：是Linux提供的操作firewall的一个工具；
+2、&amp;ndash;permanent：表示设置为持久；
+3、&amp;ndash;add-port：标识添加的端口；</description>
+    </item>
+    
   </channel>
 </rss>
