@@ -5,7 +5,18 @@
     <link>https://hanxiangbo.github.io/tags/%E7%AC%94%E8%AE%B0/</link>
     <description>Recent content in 笔记 on HXB</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 22 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://hanxiangbo.github.io/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hanxiangbo.github.io/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>属性比对器Equator</title>
+      <link>https://hanxiangbo.github.io/2021/%E5%B1%9E%E6%80%A7%E6%AF%94%E5%AF%B9%E5%99%A8equator/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hanxiangbo.github.io/2021/%E5%B1%9E%E6%80%A7%E6%AF%94%E5%AF%B9%E5%99%A8equator/</guid>
+      <description>github地址
+一个用于比较两个对象的属性是否相等，并且可以获取所有不相等的属性的比对器
+扩展使用 1.自定义注解 @Target(ElementType.FIELD) @Retention(RetentionPolicy.RUNTIME) public @interface Annotation { String value() default &amp;#34;&amp;#34;; } 2.实体 @Getter @Setter @ToString public class ModifiedField { /** * 被修改的字段名 */ private String fieldName; /** * 被修改的旧值 */ private Object oldValue; /** * 被修改的新值 */ private Object newValue; /** * 被修改的字段名中文解释 */ private String remark; } 3.扩展Equator方法 public class CompareObject { /** * 比较并返回被修改过的对象属性 ModifiedField * * @param modifyObject: 新值对象 * @param oldObject: 旧值对象 * @return */ public static List&amp;lt;ModifiedField&amp;gt; compareObject(Object modifyObject, Object oldObject) { //创建结果对象  List&amp;lt;ModifiedField&amp;gt; result = new ArrayList&amp;lt;&amp;gt;(); //获取对比字段  List&amp;lt;String&amp;gt; importFieldName = getImportFieldName(modifyObject); FieldBaseEquator fieldBaseEquator = new FieldBaseEquator(importFieldName, null); //对比，返回属性值不同字段  List&amp;lt;FieldInfo&amp;gt; diffFields = fieldBaseEquator.</description>
+    </item>
+    
     <item>
       <title>java反射</title>
       <link>https://hanxiangbo.github.io/2020/java%E5%8F%8D%E5%B0%84/</link>
@@ -13,17 +24,6 @@
       
       <guid>https://hanxiangbo.github.io/2020/java%E5%8F%8D%E5%B0%84/</guid>
       <description>//从ApplicationContext中取出已创建好的的对象 //不可直接反射创建serviceimpi对象，因为反射创建出来的对象无法实例化dao接口 ApplicationContext applicationContext = SpringBootBeanUtil.getApplicationContext(); //反射创建serviceimpi实体对象，和实体类 Class&amp;lt;?&amp;gt; ServiceImpl = Class.forName(serviceName); //反射设置方法参数。 Method method = ServiceImpl.getMethod(serviceMethod, String.class); //在ApplicationContext中根据class取出已实例化的bean Object invoke = method.invoke(applicationContext.getBean(ServiceImpl), serviceParam); if (invoke != null) { res = invoke; } @Component public class SpringBootBeanUtil implements ApplicationContextAware { private static ApplicationContext applicationContext; @Override public void setApplicationContext(ApplicationContext applicationContext) throws BeansException { if (SpringBootBeanUtil.applicationContext == null) { SpringBootBeanUtil.applicationContext = applicationContext; } System.out.println(&amp;#34;========ApplicationContext配置成功========&amp;#34;); System.out.println(&amp;#34;========在普通类可以通过调用SpringBootBeanUtil.getApplicationContext()获取applicationContext对象========&amp;#34;); System.out.println(&amp;#34;========applicationContext=&amp;#34; + SpringBootBeanUtil.applicationContext + &amp;#34;========&amp;#34;); } /** * 获取applicationContext * * @return */ public static ApplicationContext getApplicationContext() { return applicationContext; } /** * 通过name获取 Bean.</description>
-    </item>
-    
-    <item>
-      <title>属性比对器Equator</title>
-      <link>https://hanxiangbo.github.io/1/%E5%B1%9E%E6%80%A7%E6%AF%94%E5%AF%B9%E5%99%A8equator/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hanxiangbo.github.io/1/%E5%B1%9E%E6%80%A7%E6%AF%94%E5%AF%B9%E5%99%A8equator/</guid>
-      <description>github地址
-一个用于比较两个对象的属性是否相等，并且可以获取所有不相等的属性的比对器
-扩展使用 1.自定义注解 @Target(ElementType.FIELD) @Retention(RetentionPolicy.RUNTIME) public @interface Annotation { String value() default &amp;#34;&amp;#34;; } 2.实体 @Getter @Setter @ToString public class ModifiedField { /** * 被修改的字段名 */ private String fieldName; /** * 被修改的旧值 */ private Object oldValue; /** * 被修改的新值 */ private Object newValue; /** * 被修改的字段名中文解释 */ private String remark; } 3.扩展Equator方法 public class CompareObject { /** * 比较并返回被修改过的对象属性 ModifiedField * * @param modifyObject: 新值对象 * @param oldObject: 旧值对象 * @return */ public static List&amp;lt;ModifiedField&amp;gt; compareObject(Object modifyObject, Object oldObject) { //创建结果对象  List&amp;lt;ModifiedField&amp;gt; result = new ArrayList&amp;lt;&amp;gt;(); //获取对比字段  List&amp;lt;String&amp;gt; importFieldName = getImportFieldName(modifyObject); FieldBaseEquator fieldBaseEquator = new FieldBaseEquator(importFieldName, null); //对比，返回属性值不同字段  List&amp;lt;FieldInfo&amp;gt; diffFields = fieldBaseEquator.</description>
     </item>
     
   </channel>
