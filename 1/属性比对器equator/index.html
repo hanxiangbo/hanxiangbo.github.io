@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="HanXiangBo">
+  
+  
+  
+  
+  <link rel="next" href="https://hanxiangbo.github.io/2020/mysql%E4%BA%8B%E5%8A%A1/" />
+  <link rel="canonical" href="https://hanxiangbo.github.io/1/%E5%B1%9E%E6%80%A7%E6%AF%94%E5%AF%B9%E5%99%A8equator/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <title>
+       
+       
+           属性比对器Equator | HXB
+       
+  </title>
+  <meta name="title" content="属性比对器Equator | HXB">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/hanxiangbo.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "属性比对器Equator",
+    "headline" : "属性比对器Equator",
+    "description" : "github地址\n一个用于比较两个对象的属性是否相等，并且可以获取所有不相等的属性的比对器\n扩展使用 1.自定义注解 @Target(ElementType.FIELD) @Retention(RetentionPolicy.RUNTIME) public @interface Annotation { String value() default \u0026#34;\u0026#34;; } 2.实体 @Getter @Setter @ToString public class ModifiedField { \/** * 被修改的字段名 *\/ private String fieldName; \/** * 被修改的旧值 *\/ private Object oldValue; \/** * 被修改的新值 *\/ private Object newValue; \/** * 被修改的字段名中文解释 *\/ private String remark; } 3.扩展Equator方法 public class CompareObject { \/** * 比较并返回被修改过的对象属性 ModifiedField * * @param modifyObject: 新值对象 * @param oldObject: 旧值对象 * @return *\/ public static List\u0026lt;ModifiedField\u0026gt; compareObject(Object modifyObject, Object oldObject) { \/\/创建结果对象  List\u0026lt;ModifiedField\u0026gt; result = new ArrayList\u0026lt;\u0026gt;(); \/\/获取对比字段  List\u0026lt;String\u0026gt; importFieldName = getImportFieldName(modifyObject); FieldBaseEquator fieldBaseEquator = new FieldBaseEquator(importFieldName, null); \/\/对比，返回属性值不同字段  List\u0026lt;FieldInfo\u0026gt; diffFields = fieldBaseEquator.",
+    "inLanguage" : "",
+    "author" : "HanXiangBo",
+    "creator" : "HanXiangBo",
+    "publisher": "HanXiangBo",
+    "accountablePerson" : "HanXiangBo",
+    "copyrightHolder" : "HanXiangBo",
+    "copyrightYear" : "0001",
+    "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
+    "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
+    "url" : "https:\/\/hanxiangbo.github.io\/1\/%E5%B1%9E%E6%80%A7%E6%AF%94%E5%AF%B9%E5%99%A8equator\/",
+    "wordCount" : "238",
+    "keywords" : [ "笔记", "HXB"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://hanxiangbo.github.io">HXB</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://hanxiangbo.github.io">HXB</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">属性比对器Equator</h1>
+        <div class="post-meta">
+            with ♥
+            <span class="post-time">
+                on <time datetime=0001-01-01 itemprop="datePublished">January 1, 0001</time>
+                </span>
+            in
+            <i class="iconfont icon-folder"></i>
+            <span class="post-category">
+                        <a href="https://hanxiangbo.github.io/categories/java/"> Java </a>
+                        
+                </span>
+            <span id="wc" style="font-size: 1rem;text-align: center;">300 Words|Read in about 2 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+
+          
+          
+          
+
+          
+          
+          
+
+          <p><a href="https://github.com/dadiyang/equator">github地址</a></p>
+<p>一个用于比较两个对象的属性是否相等，并且可以获取所有不相等的属性的比对器</p>
+<h3 id="扩展使用">扩展使用</h3>
+<h5 id="1自定义注解">1.自定义注解</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Target</span>(<span style="color:#a6e22e">ElementType</span>.<span style="color:#a6e22e">FIELD</span>)
+<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Retention</span>(<span style="color:#a6e22e">RetentionPolicy</span>.<span style="color:#a6e22e">RUNTIME</span>)
+<span style="color:#66d9ef">public</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Annotation</span> {
+
+    String <span style="color:#a6e22e">value</span>() <span style="color:#66d9ef">default</span> <span style="color:#e6db74">&#34;&#34;</span>;
+
+}
+</code></pre></div><h5 id="2实体">2.实体</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Getter</span>
+<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Setter</span>
+<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">ToString</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ModifiedField</span> {
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 被修改的字段名
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">private</span> String <span style="color:#a6e22e">fieldName</span>;
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 被修改的旧值
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">private</span> Object <span style="color:#a6e22e">oldValue</span>;
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 被修改的新值
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">private</span> Object <span style="color:#a6e22e">newValue</span>;
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 被修改的字段名中文解释
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">private</span> String <span style="color:#a6e22e">remark</span>;
+}
+</code></pre></div><h5 id="3扩展equator方法">3.扩展Equator方法</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CompareObject</span> {
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 比较并返回被修改过的对象属性 ModifiedField
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @param modifyObject: 新值对象
+</span><span style="color:#75715e">     * @param oldObject:    旧值对象
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ModifiedField</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">compareObject</span>(Object <span style="color:#a6e22e">modifyObject</span>, Object <span style="color:#a6e22e">oldObject</span>) {
+        <span style="color:#75715e">//创建结果对象
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">List</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ModifiedField</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ArrayList</span><span style="color:#f92672">&lt;&gt;</span>();
+
+        <span style="color:#75715e">//获取对比字段
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">List</span><span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">importFieldName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getImportFieldName</span>(<span style="color:#a6e22e">modifyObject</span>);
+
+        <span style="color:#a6e22e">FieldBaseEquator</span> <span style="color:#a6e22e">fieldBaseEquator</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FieldBaseEquator</span>(<span style="color:#a6e22e">importFieldName</span>, <span style="color:#66d9ef">null</span>);
+
+        <span style="color:#75715e">//对比，返回属性值不同字段
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">List</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">FieldInfo</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">diffFields</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fieldBaseEquator</span>.<span style="color:#a6e22e">getDiffFields</span>(<span style="color:#a6e22e">modifyObject</span>, <span style="color:#a6e22e">oldObject</span>);
+
+        <span style="color:#75715e">//封装成我们需要的对象
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (<span style="color:#a6e22e">FieldInfo</span> <span style="color:#a6e22e">diffField</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">diffFields</span>) {
+
+            <span style="color:#a6e22e">ModifiedField</span> <span style="color:#a6e22e">modifiedField</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ModifiedField</span>();
+            <span style="color:#a6e22e">modifiedField</span>.<span style="color:#a6e22e">setFieldName</span>(<span style="color:#a6e22e">diffField</span>.<span style="color:#a6e22e">getFieldName</span>());
+            <span style="color:#a6e22e">modifiedField</span>.<span style="color:#a6e22e">setNewValue</span>(<span style="color:#a6e22e">diffField</span>.<span style="color:#a6e22e">getFirstVal</span>());
+            <span style="color:#a6e22e">modifiedField</span>.<span style="color:#a6e22e">setOldValue</span>(<span style="color:#a6e22e">diffField</span>.<span style="color:#a6e22e">getSecondVal</span>());
+
+            <span style="color:#75715e">//获取字段注解中文释义
+</span><span style="color:#75715e"></span>            String <span style="color:#a6e22e">remark</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getRemarkByFieldName</span>(<span style="color:#a6e22e">modifyObject</span>, <span style="color:#a6e22e">diffField</span>.<span style="color:#a6e22e">getFieldName</span>());
+            <span style="color:#a6e22e">modifiedField</span>.<span style="color:#a6e22e">setRemark</span>(<span style="color:#a6e22e">remark</span>);
+
+            <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">modifiedField</span>);
+
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+    }
+
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 根据传入的对象，和字段名，获取对应注解的中文名称
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @param obj
+</span><span style="color:#75715e">     * @param fieldName
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">getRemarkByFieldName</span>(Object <span style="color:#a6e22e">obj</span>, String <span style="color:#a6e22e">fieldName</span>) {
+        <span style="color:#a6e22e">Class</span><span style="color:#f92672">&lt;?&gt;</span> <span style="color:#a6e22e">aClass</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">getClass</span>();
+
+        <span style="color:#66d9ef">try</span> {
+            <span style="color:#a6e22e">Field</span> <span style="color:#a6e22e">field</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">aClass</span>.<span style="color:#a6e22e">getDeclaredField</span>(<span style="color:#a6e22e">fieldName</span>);
+
+            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">isAnnotationPresent</span>(<span style="color:#a6e22e">Annotation</span>.<span style="color:#66d9ef">class</span>)) {
+                <span style="color:#a6e22e">Annotation</span> <span style="color:#a6e22e">annotation</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">field</span>.<span style="color:#a6e22e">getAnnotation</span>(<span style="color:#a6e22e">Annotation</span>.<span style="color:#66d9ef">class</span>);
+                <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">annotation</span>.<span style="color:#a6e22e">value</span>();
+            }
+        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">Exception</span> <span style="color:#a6e22e">e</span>) {
+            <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">printStackTrace</span>();
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+    }
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 获取对象注解注释过的属性名集合
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @param obj
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getImportFieldName</span>(Object <span style="color:#a6e22e">obj</span>) {
+        <span style="color:#75715e">//创建集合对象，保存是否是重要字段名
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">List</span><span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">importFieldName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ArrayList</span><span style="color:#f92672">&lt;&gt;</span>();
+
+        <span style="color:#75715e">//获取类加载器对象
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">Class</span> <span style="color:#a6e22e">aClass</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">getClass</span>();
+
+        <span style="color:#75715e">//获取所有的字段
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">Field</span>[] <span style="color:#a6e22e">declaredFields</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">aClass</span>.<span style="color:#a6e22e">getDeclaredFields</span>();
+
+        <span style="color:#66d9ef">for</span> (<span style="color:#a6e22e">Field</span> <span style="color:#a6e22e">declaredField</span> <span style="color:#f92672">:</span> <span style="color:#a6e22e">declaredFields</span>) {
+            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">declaredField</span>.<span style="color:#a6e22e">isAnnotationPresent</span>(<span style="color:#a6e22e">Annotation</span>.<span style="color:#66d9ef">class</span>)) {
+                <span style="color:#75715e">//保存
+</span><span style="color:#75715e"></span>                <span style="color:#a6e22e">importFieldName</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">declaredField</span>.<span style="color:#a6e22e">getName</span>());
+            }
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">importFieldName</span>;
+    }
+}
+</code></pre></div><h5 id="4调用">4.调用</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">//获取需要比较的字段名集合
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">List</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ModifiedField</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">modifiedFields</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">CompareObject</span>.<span style="color:#a6e22e">compareObject</span>(<span style="color:#a6e22e">oldClass</span>, <span style="color:#a6e22e">newClass</span>);
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+            
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>HanXiangBo </span>
+                </p>
+            
+
+            
+        <p class="copyright-item">
+            <span>Link:</span>
+            <a href=https://hanxiangbo.github.io/1/%E5%B1%9E%E6%80%A7%E6%AF%94%E5%AF%B9%E5%99%A8equator//>https://hanxiangbo.github.io/1/%E5%B1%9E%E6%80%A7%E6%AF%94%E5%AF%B9%E5%99%A8equator/</span>
+        </p>
+            
+            
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s):
+            
+            <span class="tag"><a href="https://hanxiangbo.github.io/tags/%E7%AC%94%E8%AE%B0/">
+                    #笔记</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> ·
+                <span><a href="https://hanxiangbo.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        
+        <a href="https://hanxiangbo.github.io/2020/mysql%E4%BA%8B%E5%8A%A1/" class="next" rel="next" title=" Mysql事务"> Mysql事务&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2020 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i>
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://hanxiangbo.github.io">HanXiangBo</a> | </span>
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
+        <span id="busuanzi_container_site_uv">本站访客数：<span id="busuanzi_value_site_uv"></span>人</span>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+
+     </div>
+  </body>
+</html>
